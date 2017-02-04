@@ -12,9 +12,8 @@ public void Main(string argument)
     List<IMyInventoryItem> cargoList = cargoIventory.GetItems(); // Get list of items in inventory
 
     textPanel.WritePublicText(""); // Clear text panel
-    for(int i = 0; i < cargoList.Count; ++i)
+    foreach(IMyInventoryItem item in cargoList)
     {
-        IMyInventoryItem item = cargoList[i]; // Get item in list
         VRage.ObjectBuilders.MyObjectBuilder_Base content = item.Content; // Get content descriptor
         textPanel.WritePublicText(content.TypeId.ToString(), true); // Write name of builder type
         textPanel.WritePublicText(":", true);
