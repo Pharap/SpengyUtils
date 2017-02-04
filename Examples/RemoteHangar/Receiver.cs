@@ -3,40 +3,32 @@
 // 2. Put this script in a progammable block
 // 3. Assign that programmable block to an Antenna
 
-void OpenHangarGroup(string groupName)
+ 
+void OpenDoorGroup(string groupName) 
+{ 
+    var hangarGroup = GridTerminalSystem.GetBlockGroupWithName(groupName); 
+    var doors = new List<IMyDoor>(); 
+    hangarGroup.GetBlocksOfType(doors); 
+ 
+    foreach(var door in doors)
+        door.OpenDoor();
+} 
+ 
+void CloseDoorGroup(string groupName) 
+{ 
+    var hangarGroup = GridTerminalSystem.GetBlockGroupWithName(groupName); 
+    var doors = new List<IMyDoor>(); 
+    hangarGroup.GetBlocksOfType(doors);  
+  
+    foreach(var door in doors) 
+        door.CloseDoor();
+} 
+ 
+public void Main(string argument) 
 {
-    var hangarGroup = GridTerminalSystem.GetBlockGroupWithName(groupName);
-    var doors = new List<IMyAirtightHangarDoor>();
-    hangarGroup.GetBlocksOfType(doors);
-
-    for(int i = 0; i < doors.Count; ++i)
+    switch(argument)
     {
-        var door = doors[i];
-        door.ApplyAction("Open_On");
-    }
-}
-
-void CloseHangarGroup(string groupName)
-{
-    var hangarGroup = GridTerminalSystem.GetBlockGroupWithName(groupName);
-    var doors = new List<IMyAirtightHangarDoor>();
-    hangarGroup.GetBlocksOfType(doors);
-
-    for(int i = 0; i < doors.Count; ++i)
-    {
-        var door = doors[i];
-        door.ApplyAction("Open_Off");
-    }
-}
-
-public void Main(string argument)
-{
-    if (argument == "OpenHangar")
-    {
-        OpenHangarGroup("Hangar");
-    }
-    if (argument == "CloseHangar")
-    {
-        CloseHangarGroup("Hangar");
-    }   
+        case "OpenHangar": OpenDoorGroup("Hangar"); break; 
+        case "CloseHangar": CloseDoorGroup("Hangar"); break;
+    }  
 }
