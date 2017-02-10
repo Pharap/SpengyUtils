@@ -1,21 +1,21 @@
 static class GpsHelper 
 { 
-    public static string ToGpsString(string name, Vector3 vector) 
+    public static string ToString(string name, Vector3 vector) 
     { 
         return string.Format("GPS:{0}:{1}:{2}:{3}:", name, vector.X, vector.Y, vector.Z); 
     } 
      
-    public static string ToGpsString(string name, Vector3D vector) 
+    public static string ToString(string name, Vector3D vector) 
     { 
         return string.Format("GPS:{0}:{1}:{2}:{3}:", name, vector.X, vector.Y, vector.Z); 
     } 
      
-    public static string ToGpsString(string name, float x, float y, float z) 
+    public static string ToString(string name, float x, float y, float z) 
     { 
         return string.Format("GPS:{0}:{1}:{2}:{3}:", name, x, y, z); 
     } 
      
-    public static string ToGpsString(string name, double x, double y, double z) 
+    public static string ToString(string name, double x, double y, double z) 
     { 
         return string.Format("GPS:{0}:{1}:{2}:{3}:", name, x, y, z); 
     } 
