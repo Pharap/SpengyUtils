@@ -1,4 +1,4 @@
-static class GpsHelper 
+public static class GpsHelper 
 { 
     public static string ToString(string name, Vector3 vector) 
     { 
