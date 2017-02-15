@@ -61,6 +61,11 @@ public class Terminal
     {
         this.Write(string.Format(format, args));
     }
+    
+    public void WriteLine()  
+    {  
+        panel.WritePublicText("\n", true);  
+    }
 
     public void WriteLine(string text)
     {
